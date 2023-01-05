@@ -21,7 +21,7 @@ public class UserController {
     /**
      * SLF4J Logger instance.
      */
-    private static final Logger logger = LogManager.getLogger("TradeController");
+    private static final Logger logger = LogManager.getLogger("UserController");
 
 
     private UserRepository userRepository;
