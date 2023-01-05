@@ -114,10 +114,6 @@ public class BidListController {
     public String updateBid(@PathVariable("id") Integer id, BidList bidList,
                             BindingResult result, Model model) throws DataNotFoundException {
         logger.info("@PostMapping(\"/bidList/update/{id}\")");
-        if (result.hasErrors()) {
-            logger.error("result error :{}", result.getFieldError());
-            return "bidList/update";
-        }
         bidList.setBidListId(id);
         bidListService.save(bidList);
         model.addAttribute("bidList", bidListService.findAll());
@@ -133,7 +129,6 @@ public class BidListController {
     @GetMapping("/bidList/delete/{id}")
     public String deleteBid(@PathVariable("id") Integer id, Model model) throws DataNotFoundException {
         logger.info("@GetMapping(\"/bidList/delete/{id}\"");
-//        Optional<BidList> bid = bidListService.findById(id);
         bidListService.delete(id);
         model.addAttribute("bids", bidListService.findAll());
         return "redirect:/bidList/list";

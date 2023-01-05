@@ -32,6 +32,8 @@ import java.util.Optional;
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -46,7 +48,7 @@ class BidListControllerTest {
     @Autowired
     private MockMvc mockMvc;
     @MockBean
-    private BidListServiceImpl bidService;
+    private BidListServiceImpl bidListService;
     @MockBean
     private UserDetailServiceImpl userDetailService;
 
@@ -65,7 +67,7 @@ class BidListControllerTest {
         //Given
         BidList bid = new BidList("Account", "Type", 5d);
 
-        when(bidService.findAll()).thenReturn(Arrays.asList(bid));
+        when(bidListService.findAll()).thenReturn(Arrays.asList(bid));
         //When
         mockMvc.perform(get("/bidList/list")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -83,7 +85,7 @@ class BidListControllerTest {
         //Given
         BidList bid = new BidList("Account", "Type", 5d);
 
-        when(bidService.findAll()).thenReturn(Arrays.asList(bid));
+        when(bidListService.findAll()).thenReturn(Arrays.asList(bid));
         //When
         mockMvc.perform(get("/bidList/add")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -109,7 +111,7 @@ class BidListControllerTest {
         json.put("type", "tutu");
         json.put("bidQuantity", 20);
 
-        when(bidService.save(any())).thenReturn(bid);
+        when(bidListService.save(any())).thenReturn(bid);
         //When
         mockMvc.perform(post("/bidList/validate")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -129,7 +131,7 @@ class BidListControllerTest {
         //Given
         BidList bid = new BidList("Account", "Type", 5d);
 
-        when(bidService.update(any())).thenReturn(bid);
+        when(bidListService.update(any())).thenReturn(bid);
 
         //When
         mockMvc.perform(post("/bidList/validate")
@@ -152,7 +154,7 @@ class BidListControllerTest {
         //Given
         BidList bid = new BidList("Account", "Type", 5d);
 
-        when(bidService.findById(any())).thenReturn(Optional.of(bid));
+        when(bidListService.findById(any())).thenReturn(Optional.of(bid));
         //When
         mockMvc.perform(get("/bidList/update/{id}",1)
                         .contentType(MediaType.APPLICATION_JSON)
@@ -169,7 +171,7 @@ class BidListControllerTest {
         //Given
         BidList bid = new BidList("Account", "Type", 5d);
         bid.setBidListId(1);
-        when(bidService.update(any())).thenReturn(bid);
+        when(bidListService.update(any())).thenReturn(bid);
 
         //When
         mockMvc.perform(post("/bidList/validate")
@@ -195,41 +197,32 @@ class BidListControllerTest {
 
     }
 
+
+
     @Test
-    void updateBid_shouldReturnErrorInViewBidList() throws Exception {
-//        //Given
+    void deleteBid() throws Exception {
+
+        //Given
         BidList bid = new BidList("Account", "Type", 5d);
-//        bid.setBidListId(1);
-////        when(bidService.update(any())).thenReturn(bid);
-//
-//        //When
-//
-//        mockMvc.perform(post("/bidList/update/01")
-//                        .sessionAttr("bidList", bid)
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .accept(MediaType.APPLICATION_JSON))
-//
-//                //Then
-//                .andDo(print())
-//                .andExpect(status().isFound())
-//                .andExpect(view().name("bidList/update"));
-//        //ARRANGE
-//        when(bidService.save(bid)).thenReturn(bid);
-//        //ACT
-//        mockMvc.perform(post("/bidList/update/1")
-//                        .sessionAttr("bidList", bid)
-//                        .param("account", bid.getAccount())
-//                        .param("type", bid.getType())
-//                        .param("bidQuantity", "0")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .accept(MediaType.APPLICATION_JSON))
-//                //ASSERT
-//                .andDo(print())
-//                .andExpect(view().name("bidList/update"));
-    }
+        bid.setBidListId(1);
+        doNothing().when(bidListService).delete(bid.getBidListId());
 
+        //When
+        mockMvc.perform(post("/bidList/validate")
+                .sessionAttr("bidList", bid)
+                .param("account", bid.getAccount())
+                .param("type", bid.getType())
+                .param("bidQuantity", "1.0")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON));
 
-    @Test
-    void deleteBid() {
+        mockMvc.perform(get("/bidList/delete/{id}",1)
+                        .sessionAttr("bidList", bid)
+                        .accept(MediaType.APPLICATION_JSON))
+
+                //Then
+                .andDo(print())
+                .andExpect(status().isFound())
+                .andExpect(view().name("redirect:/bidList/list"));
     }
 }
