@@ -50,11 +50,11 @@ public class RuleNameController {
     }
 
     /**
-     * @param bid
+     * @param ruleName
      * @return ruleName add form
      */
     @GetMapping("/ruleName/add")
-    public String addRuleForm(RuleName bid) {
+    public String addRuleForm(RuleName ruleName) {
         logger.info("@RequestMapping(\"/ruleName/add\")");
         return "ruleName/add";
     }
@@ -91,10 +91,6 @@ public class RuleNameController {
     public String updateRuleName(@PathVariable("id") Integer id, @Valid RuleName ruleName,
                                  BindingResult result, Model model) {
         logger.info("@PostMapping(\"/ruleName/update/{id}\")");
-        if (result.hasErrors()) {
-            logger.error("result error :{}", result.getFieldError());
-            return "ruleName/update";
-        }
         ruleName.setId(id);
         ruleNameService.save(ruleName);
         model.addAttribute("ruleNames", ruleNameService.findAll());
