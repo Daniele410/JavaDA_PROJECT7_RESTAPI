@@ -44,9 +44,9 @@ public class RatingController {
      */
     @RequestMapping(&quot;/rating/list&quot;)
     public String home(Model model) {
-<span class="nc" id="L47">        logger.info(&quot;@RequestMapping(\&quot;/rating/list\&quot;)&quot;);</span>
-<span class="nc" id="L48">        model.addAttribute(&quot;ratings&quot;, ratingService.findAll());</span>
-<span class="nc" id="L49">        return &quot;rating/list&quot;;</span>
+<span class="fc" id="L47">        logger.info(&quot;@RequestMapping(\&quot;/rating/list\&quot;)&quot;);</span>
+<span class="fc" id="L48">        model.addAttribute(&quot;ratings&quot;, ratingService.findAll());</span>
+<span class="fc" id="L49">        return &quot;rating/list&quot;;</span>
     }
 
     /**
@@ -55,19 +55,15 @@ public class RatingController {
      */
     @GetMapping(&quot;/rating/add&quot;)
     public String addRatingForm(Rating rating) {
-<span class="nc" id="L58">        logger.info(&quot;@RequestMapping(\&quot;/rating/add\&quot;)&quot;);</span>
-<span class="nc" id="L59">        return &quot;rating/add&quot;;</span>
+<span class="fc" id="L58">        logger.info(&quot;@RequestMapping(\&quot;/rating/add\&quot;)&quot;);</span>
+<span class="fc" id="L59">        return &quot;rating/add&quot;;</span>
     }
 
     @PostMapping(&quot;/rating/validate&quot;)
     public String validate(@Valid Rating rating, BindingResult result, Model model) {
-<span class="nc" id="L64">        logger.info(&quot;@PostMapping(\&quot;/rating/validate\&quot;)&quot;);</span>
-        /**form data validation*/
-<span class="nc bnc" id="L66" title="All 2 branches missed.">        if (result.hasErrors()) {</span>
-<span class="nc" id="L67">            return &quot;rating/add&quot;;</span>
-        }
-<span class="nc" id="L69">        ratingService.save(rating);</span>
-<span class="nc" id="L70">        return &quot;redirect:/rating/list&quot;;</span>
+<span class="fc" id="L64">        logger.info(&quot;@PostMapping(\&quot;/rating/validate\&quot;)&quot;);</span>
+<span class="fc" id="L65">        ratingService.save(rating);</span>
+<span class="fc" id="L66">        return &quot;redirect:/rating/list&quot;;</span>
     }
 
     /**
@@ -78,13 +74,10 @@ public class RatingController {
      */
     @GetMapping(&quot;/rating/update/{id}&quot;)
     public String showUpdateForm(@PathVariable(&quot;id&quot;) Integer id, Model model) throws DataNotFoundException {
-<span class="nc" id="L81">        logger.info(&quot;@GetMapping(\&quot;/rating/update/{id}\&quot;)&quot;);</span>
-<span class="nc" id="L82">        Optional&lt;Rating&gt; rating = ratingService.findById(id);</span>
-<span class="nc bnc" id="L83" title="All 2 branches missed.">        if(rating.isPresent() ){</span>
-<span class="nc" id="L84">            model.addAttribute(&quot;Error&quot;, &quot;This &quot; + rating.get() + &quot; is present&quot;);</span>
-        }
-<span class="nc" id="L86">        model.addAttribute(&quot;rating&quot;,rating.get());</span>
-<span class="nc" id="L87">        return &quot;rating/update&quot;;</span>
+<span class="fc" id="L77">        logger.info(&quot;@GetMapping(\&quot;/rating/update/{id}\&quot;)&quot;);</span>
+<span class="fc" id="L78">        Optional&lt;Rating&gt; rating = ratingService.findById(id);</span>
+<span class="fc" id="L79">        model.addAttribute(&quot;rating&quot;,rating.get());</span>
+<span class="fc" id="L80">        return &quot;rating/update&quot;;</span>
     }
 
     /**
@@ -97,15 +90,15 @@ public class RatingController {
     @PostMapping(&quot;/rating/update/{id}&quot;)
     public String updateRating(@PathVariable(&quot;id&quot;) Integer id, @Valid Rating rating,
                                BindingResult result, Model model) throws DataNotFoundException {
-<span class="nc" id="L100">        logger.info(&quot;@PostMapping(\&quot;/rating/update/{id}\&quot;)&quot;);</span>
-<span class="nc bnc" id="L101" title="All 2 branches missed.">        if (result.hasErrors()) {</span>
-<span class="nc" id="L102">            logger.error(&quot;result error :{}&quot;, result.getFieldError());</span>
-<span class="nc" id="L103">            return &quot;rating/update&quot;;</span>
+<span class="fc" id="L93">        logger.info(&quot;@PostMapping(\&quot;/rating/update/{id}\&quot;)&quot;);</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">        if (result.hasErrors()) {</span>
+<span class="fc" id="L95">            logger.error(&quot;result error :{}&quot;, result.getFieldError());</span>
+<span class="fc" id="L96">            return &quot;rating/update&quot;;</span>
         }
-<span class="nc" id="L105">        rating.setId(id);</span>
-<span class="nc" id="L106">        ratingService.save(rating);</span>
-<span class="nc" id="L107">        model.addAttribute(&quot;rating&quot;, ratingService.findAll());</span>
-<span class="nc" id="L108">        return &quot;redirect:/rating/list&quot;;</span>
+<span class="fc" id="L98">        rating.setId(id);</span>
+<span class="fc" id="L99">        ratingService.save(rating);</span>
+<span class="fc" id="L100">        model.addAttribute(&quot;rating&quot;, ratingService.findAll());</span>
+<span class="fc" id="L101">        return &quot;redirect:/rating/list&quot;;</span>
     }
 
 
@@ -117,11 +110,11 @@ public class RatingController {
      */
     @GetMapping(&quot;/rating/delete/{id}&quot;)
     public String deleteRating(@PathVariable(&quot;id&quot;) Integer id, Model model) throws DataNotFoundException {
-<span class="nc" id="L120">        logger.info(&quot;@GetMapping(\&quot;/rating/delete/{id}\&quot;&quot;);</span>
+<span class="fc" id="L113">        logger.info(&quot;@GetMapping(\&quot;/rating/delete/{id}\&quot;&quot;);</span>
 
-<span class="nc" id="L122">        ratingService.delete(id);</span>
-<span class="nc" id="L123">        model.addAttribute(&quot;ratings&quot;, ratingService.findAll());</span>
-<span class="nc" id="L124">        return &quot;redirect:/rating/list&quot;;</span>
+<span class="fc" id="L115">        ratingService.delete(id);</span>
+<span class="fc" id="L116">        model.addAttribute(&quot;ratings&quot;, ratingService.findAll());</span>
+<span class="fc" id="L117">        return &quot;redirect:/rating/list&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

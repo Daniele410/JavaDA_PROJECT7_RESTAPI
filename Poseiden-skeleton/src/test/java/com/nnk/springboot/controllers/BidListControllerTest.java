@@ -63,7 +63,7 @@ class BidListControllerTest {
 
 
     @Test
-    void showBidListShouldReturnModifiedBidListView() throws Exception {
+    void showBidLists_shouldReturnModifiedBidListView() throws Exception {
         //Given
         BidList bid = new BidList("Account", "Type", 5d);
 
@@ -80,7 +80,7 @@ class BidListControllerTest {
     }
 
     @Test
-    void addBidForm() throws Exception {
+    void showAddBidForm() throws Exception {
 
         //Given
         BidList bid = new BidList("Account", "Type", 5d);

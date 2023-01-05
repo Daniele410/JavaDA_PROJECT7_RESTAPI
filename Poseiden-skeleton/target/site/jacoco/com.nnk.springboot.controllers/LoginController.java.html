@@ -45,34 +45,34 @@ public class LoginController {
 
     @GetMapping(&quot;/login&quot;)
     public ModelAndView login() {
-<span class="nc" id="L48">        ModelAndView mav = new ModelAndView();</span>
-<span class="nc" id="L49">        mav.setViewName(&quot;login&quot;);</span>
-<span class="nc" id="L50">        return mav;</span>
+<span class="fc" id="L48">        ModelAndView mav = new ModelAndView();</span>
+<span class="fc" id="L49">        mav.setViewName(&quot;login&quot;);</span>
+<span class="fc" id="L50">        return mav;</span>
     }
 
     @RequestMapping(&quot;/login-success&quot;)
     public ModelAndView getInfo() {
-<span class="nc" id="L55">        ModelAndView mav = new ModelAndView();</span>
-<span class="nc" id="L56">        mav.setViewName(&quot;redirect:/&quot;);</span>
-<span class="nc" id="L57">        return mav;</span>
+<span class="fc" id="L55">        ModelAndView mav = new ModelAndView();</span>
+<span class="fc" id="L56">        mav.setViewName(&quot;redirect:/&quot;);</span>
+<span class="fc" id="L57">        return mav;</span>
     }
 
 
     @GetMapping(&quot;/secure/article-details&quot;)
     public ModelAndView getAllUserArticles() {
-<span class="nc" id="L63">        ModelAndView mav = new ModelAndView();</span>
-<span class="nc" id="L64">        mav.addObject(&quot;users&quot;, userRepository.findAll());</span>
-<span class="nc" id="L65">        mav.setViewName(&quot;user/list&quot;);</span>
-<span class="nc" id="L66">        return mav;</span>
+<span class="fc" id="L63">        ModelAndView mav = new ModelAndView();</span>
+<span class="fc" id="L64">        mav.addObject(&quot;users&quot;, userRepository.findAll());</span>
+<span class="fc" id="L65">        mav.setViewName(&quot;user/list&quot;);</span>
+<span class="fc" id="L66">        return mav;</span>
     }
 
     @GetMapping(&quot;/403&quot;)
     public ModelAndView error() {
-<span class="nc" id="L71">        ModelAndView mav = new ModelAndView();</span>
-<span class="nc" id="L72">        String errorMessage = &quot;You are not authorized for the requested data.&quot;;</span>
-<span class="nc" id="L73">        mav.addObject(&quot;errorMsg&quot;, errorMessage);</span>
-<span class="nc" id="L74">        mav.setViewName(&quot;403&quot;);</span>
-<span class="nc" id="L75">        return mav;</span>
+<span class="fc" id="L71">        ModelAndView mav = new ModelAndView();</span>
+<span class="fc" id="L72">        String errorMessage = &quot;You are not authorized for the requested data.&quot;;</span>
+<span class="fc" id="L73">        mav.addObject(&quot;errorMsg&quot;, errorMessage);</span>
+<span class="fc" id="L74">        mav.setViewName(&quot;403&quot;);</span>
+<span class="fc" id="L75">        return mav;</span>
     }
 
 

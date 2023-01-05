@@ -62,10 +62,6 @@ public class RatingController {
     @PostMapping("/rating/validate")
     public String validate(@Valid Rating rating, BindingResult result, Model model) {
         logger.info("@PostMapping(\"/rating/validate\")");
-        /**form data validation*/
-        if (result.hasErrors()) {
-            return "rating/add";
-        }
         ratingService.save(rating);
         return "redirect:/rating/list";
     }
@@ -80,9 +76,6 @@ public class RatingController {
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) throws DataNotFoundException {
         logger.info("@GetMapping(\"/rating/update/{id}\")");
         Optional<Rating> rating = ratingService.findById(id);
-        if(rating.isPresent() ){
-            model.addAttribute("Error", "This " + rating.get() + " is present");
-        }
         model.addAttribute("rating",rating.get());
         return "rating/update";
     }
