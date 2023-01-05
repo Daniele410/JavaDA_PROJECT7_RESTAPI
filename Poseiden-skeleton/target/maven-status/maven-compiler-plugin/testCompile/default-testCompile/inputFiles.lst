@@ -1,9 +1,12 @@
 C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\PasswordEncodeTest.java
 C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\CurvePointTests.java
 C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\controllers\apiRest\CurveApiRestControllerTest.java
+C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\controllers\apiRest\UserApiRestControllerTest.java
+C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\controllers\apiRest\TradeApiRestControllerTest.java
 C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\controllers\UserControllerTest.java
 C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\service\impl\TradeServiceImplTest.java
 C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\controllers\apiRest\RuleNameApiRestControllerTest.java
+C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\controllers\BidListControllerTest.java
 C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\service\impl\UserServiceImplTest.java
 C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\service\impl\RuleNameServiceImplTest.java
 C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\test\java\com\nnk\springboot\service\impl\RatingServiceImplTest.java
