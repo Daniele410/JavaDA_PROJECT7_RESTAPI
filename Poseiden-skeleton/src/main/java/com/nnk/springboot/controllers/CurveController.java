@@ -102,10 +102,6 @@ public class CurveController {
     public String updateCurvePoint(@PathVariable("id") Integer id, @Valid CurvePoint curvePoint,
                             BindingResult result, Model model) throws DataNotFoundException {
         logger.info("@PostMapping(\"/curvePoint/update/{id}\")");
-        if (result.hasErrors()) {
-            logger.error("result error :{}", result.getFieldError());
-            return "curvePoint/update";
-        }
         curvePoint.setId(id);
         curvePointService.save(curvePoint);
         model.addAttribute("curvePoint", curvePointService.findAll());
@@ -121,7 +117,6 @@ public class CurveController {
     @GetMapping("/curvePoint/delete/{id}")
     public String deleteCurvePoint(@PathVariable("id") Integer id, Model model) throws DataNotFoundException {
         logger.info("@GetMapping(\"/curvePoint/delete/{id}\"");
-//        Optional<CurvePoint> curvePoint = curvePointService.findById(id);
        curvePointService.delete(id);
        model.addAttribute("curvePoints", curvePointService.findAll());
         return "redirect:/curvePoint/list";
