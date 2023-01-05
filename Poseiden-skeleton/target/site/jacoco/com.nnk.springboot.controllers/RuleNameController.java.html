@@ -80,29 +80,26 @@ public class RuleNameController {
     public String showUpdateForm(@PathVariable(&quot;id&quot;) Integer id, Model model) throws DataNotFoundException {
 <span class="fc" id="L81">        logger.info(&quot;@GetMapping(\&quot;/ruleName/update/{id}\&quot;)&quot;);</span>
 <span class="fc" id="L82">        Optional&lt;RuleName&gt; ruleNames = ruleNameService.findById(id);</span>
-<span class="pc bpc" id="L83" title="1 of 2 branches missed.">        if (ruleNames.isPresent()) {</span>
-<span class="fc" id="L84">            model.addAttribute(&quot;error&quot;, &quot;This &quot; + ruleNames.get() + &quot;is present&quot;);</span>
-        }
-<span class="fc" id="L86">        model.addAttribute(&quot;ruleName&quot;, ruleNames.get());</span>
-<span class="fc" id="L87">        return &quot;ruleName/update&quot;;</span>
+<span class="fc" id="L83">        model.addAttribute(&quot;ruleName&quot;, ruleNames.get());</span>
+<span class="fc" id="L84">        return &quot;ruleName/update&quot;;</span>
     }
 
     @PostMapping(&quot;/ruleName/update/{id}&quot;)
     public String updateRuleName(@PathVariable(&quot;id&quot;) Integer id, @Valid RuleName ruleName,
                                  BindingResult result, Model model) {
-<span class="fc" id="L93">        logger.info(&quot;@PostMapping(\&quot;/ruleName/update/{id}\&quot;)&quot;);</span>
-<span class="fc" id="L94">        ruleName.setId(id);</span>
-<span class="fc" id="L95">        ruleNameService.save(ruleName);</span>
-<span class="fc" id="L96">        model.addAttribute(&quot;ruleNames&quot;, ruleNameService.findAll());</span>
-<span class="fc" id="L97">        return &quot;redirect:/ruleName/list&quot;;</span>
+<span class="fc" id="L90">        logger.info(&quot;@PostMapping(\&quot;/ruleName/update/{id}\&quot;)&quot;);</span>
+<span class="fc" id="L91">        ruleName.setId(id);</span>
+<span class="fc" id="L92">        ruleNameService.save(ruleName);</span>
+<span class="fc" id="L93">        model.addAttribute(&quot;ruleNames&quot;, ruleNameService.findAll());</span>
+<span class="fc" id="L94">        return &quot;redirect:/ruleName/list&quot;;</span>
     }
 
     @GetMapping(&quot;/ruleName/delete/{id}&quot;)
     public String deleteRuleName(@PathVariable(&quot;id&quot;) Integer id, Model model) throws DataNotFoundException {
-<span class="fc" id="L102">        logger.info(&quot;@GetMapping(\&quot;/ruleName/delete/{id}\&quot;&quot;);</span>
-<span class="fc" id="L103">        ruleNameService.delete(id);</span>
-<span class="fc" id="L104">        model.addAttribute(&quot;ruleNames&quot;, ruleNameService.findAll());</span>
-<span class="fc" id="L105">        return &quot;redirect:/ruleName/list&quot;;</span>
+<span class="fc" id="L99">        logger.info(&quot;@GetMapping(\&quot;/ruleName/delete/{id}\&quot;&quot;);</span>
+<span class="fc" id="L100">        ruleNameService.delete(id);</span>
+<span class="fc" id="L101">        model.addAttribute(&quot;ruleNames&quot;, ruleNameService.findAll());</span>
+<span class="fc" id="L102">        return &quot;redirect:/ruleName/list&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

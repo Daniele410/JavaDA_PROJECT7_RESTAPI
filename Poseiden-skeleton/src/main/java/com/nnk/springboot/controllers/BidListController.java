@@ -94,9 +94,6 @@ public class BidListController {
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) throws DataNotFoundException {
         logger.info("@GetMapping(\"/bidList/update/{id}\")");
         Optional<BidList> bidList = bidListService.findById(id);
-        if (bidList.isPresent()) {
-            model.addAttribute("Error", "This " + bidList + " is present");
-        }
 
         model.addAttribute("bidList", bidList.get());
         return "bidList/update";

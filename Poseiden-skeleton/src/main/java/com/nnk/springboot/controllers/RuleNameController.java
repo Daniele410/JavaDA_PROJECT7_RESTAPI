@@ -80,9 +80,6 @@ public class RuleNameController {
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) throws DataNotFoundException {
         logger.info("@GetMapping(\"/ruleName/update/{id}\")");
         Optional<RuleName> ruleNames = ruleNameService.findById(id);
-        if (ruleNames.isPresent()) {
-            model.addAttribute("error", "This " + ruleNames.get() + "is present");
-        }
         model.addAttribute("ruleName", ruleNames.get());
         return "ruleName/update";
     }
