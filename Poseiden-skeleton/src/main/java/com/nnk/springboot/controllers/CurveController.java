@@ -26,7 +26,7 @@ public class CurveController {
     /**
      * SLF4J Logger instance.
      */
-    private static final Logger logger = LogManager.getLogger("BidListController");
+    private static final Logger logger = LogManager.getLogger("CurveController");
 
     /**
      * ICurvePointService instance.
@@ -72,13 +72,8 @@ public class CurveController {
     @PostMapping("/curvePoint/validate")
     public String validate(@Valid CurvePoint curvePoint, BindingResult result, Model model) {
         logger.info("@PostMapping(\"/curvePoint/validate\")");
-        /**form data validation*/
-        if (result.hasErrors()) {
-            return "/curvePoint/add";
-        }
         /**save in to dataBase:*/
         curvePointService.save(curvePoint);
-
         return "redirect:/curvePoint/list";
     }
 
@@ -92,9 +87,6 @@ public class CurveController {
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) throws DataNotFoundException {
         logger.info("@GetMapping(\"/curvePoint/update/{id}\")");
         Optional<CurvePoint> curvePoint = curvePointService.findById(id);
-        if(curvePoint.isPresent()){
-            model.addAttribute("error", "This" + curvePoint + "is present");
-        }
         model.addAttribute("curvePoint", curvePoint.get());
         return "curvePoint/update";
     }

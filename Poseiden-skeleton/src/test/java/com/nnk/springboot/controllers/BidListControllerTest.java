@@ -105,7 +105,6 @@ class BidListControllerTest {
         //Given
         BidList bid = new BidList("Account", "Type", 5d);
 
-        //GIVEN
         JSONObject json = new JSONObject();
         json.put("account", "toto");
         json.put("type", "tutu");
