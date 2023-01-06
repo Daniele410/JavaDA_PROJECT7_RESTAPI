@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.nnk.springboot.controllers.apiRest.BidListApiRestControllerTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.925 s - in com.nnk.springboot.controllers.apiRest.BidListApiRestControllerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 23.296 s - in com.nnk.springboot.controllers.apiRest.BidListApiRestControllerTest
