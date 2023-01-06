@@ -17,6 +17,7 @@ com\nnk\springboot\service\impl\RuleNameServiceImplTest.class
 com\nnk\springboot\controllers\apiRest\RatingApiRestControllerTest.class
 com\nnk\springboot\RuleTests.class
 com\nnk\springboot\controllers\RatingControllerTest.class
+com\nnk\springboot\controllers\TradeControllerTest.class
 com\nnk\springboot\controllers\apiRest\CurveApiRestControllerTest.class
 com\nnk\springboot\controllers\apiRest\UserApiRestControllerTest.class
 com\nnk\springboot\service\impl\BidListServiceImplTest.class

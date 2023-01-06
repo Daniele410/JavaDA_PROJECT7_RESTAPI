@@ -58,7 +58,7 @@ public class TradeController {
      * @return trade add page
      */
     @GetMapping("/trade/add")
-    public String addUser(Trade trade) {
+    public String addTrade(Trade trade) {
         logger.info("@GetMapping(\"/trade/add\")");
         return "trade/add";
     }
@@ -72,10 +72,6 @@ public class TradeController {
     @PostMapping("/trade/validate")
     public String validate(@Valid Trade trade, BindingResult result, Model model) {
         logger.info("@PostMapping(\"/trade/validate\")");
-        /**form data validation*/
-        if (result.hasErrors()) {
-            return "/curvePoint/add";
-        }
         /**save in to dataBase:*/
         tradeService.save(trade);
         return "redirect:/trade/list";

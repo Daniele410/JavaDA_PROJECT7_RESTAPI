@@ -1,6 +1,7 @@
 package com.nnk.springboot.security;
 
 import com.nnk.springboot.service.IUserDetailService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -71,6 +72,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().accessDeniedPage("/403");
 
 
+    }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .inMemoryAuthentication()
+                .withUser("user").password("{noop}pass").roles("USER")
+                .and()
+                .withUser("admin").password("{noop}pass").roles("ADMIN");
     }
 
 

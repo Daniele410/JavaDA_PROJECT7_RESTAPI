@@ -123,7 +123,7 @@ class RuleNameControllerTest {
     }
 
     @Test
-    void showUpdateForm_shouldReturnModifiedView() throws Exception {
+    void showRuleNameUpdateForm_shouldReturnModifiedView() throws Exception {
 
         //Given
         RuleName ruleName = new RuleName("moody", "sandRating", "fitchRating", "template", "sqlStr", "sqlPart");
@@ -142,7 +142,7 @@ class RuleNameControllerTest {
     }
 
     @Test
-    void updateRuleName() throws Exception {
+    void updateRuleName_shouldReturnModifiedView() throws Exception {
         //Given
         RuleName ruleName = new RuleName("moody", "sandRating", "fitchRating", "template", "sqlStr", "sqlPart");
         ruleName.setId(1);
