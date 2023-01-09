@@ -79,10 +79,9 @@ public class BidListServiceImpl implements IBidListService {
             throw new DataNotFoundException("This bid doesn't exist with this id : " + bid.getBidListId() + " , from getBidById, BidListService.");
         });
         logger.info("Bid successfully found by its id(from getBidById,BidListService).");
-
-        uploadBid.setAccount(bid.getAccount());
-        uploadBid.setType(bid.getType());
-        uploadBid.setBidQuantity(bid.getBidQuantity());
+//        uploadBid.setAccount(bid.getAccount());
+//        uploadBid.setType(bid.getType());
+//        uploadBid.setBidQuantity(bid.getBidQuantity());
 
         return bidListRepository.save(uploadBid);
 

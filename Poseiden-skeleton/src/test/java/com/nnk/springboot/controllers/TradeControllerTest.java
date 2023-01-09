@@ -108,7 +108,7 @@ class TradeControllerTest {
 
 
     @Test
-    void showUpdateForm_shouldReturnModifiedView() throws Exception {
+    void showUpdateForm_shouldReturnModifiedViewError() throws Exception {
         Trade trade = new Trade("NewAccount","newType",1.0);
         trade.setTradeId(1);
         when(tradeService.findById(any())).thenReturn(Optional.of(trade));
@@ -121,6 +121,7 @@ class TradeControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("trade/update"));
     }
+
 
     @Test
     void updateTradeForm_shouldReturnModifiedView() throws Exception {

@@ -86,11 +86,9 @@ public class TradeController {
     public String showUpdateForm(@PathVariable(&quot;id&quot;) Integer id, Model model) throws DataNotFoundException {
 <span class="fc" id="L87">        logger.info(&quot;@GetMapping(\&quot;/trade/update/{id}\&quot;)&quot;);</span>
 <span class="fc" id="L88">        Optional&lt;Trade&gt; trade = tradeService.findById(id);</span>
-<span class="pc bpc" id="L89" title="1 of 2 branches missed.">        if(trade.isPresent()){</span>
-<span class="fc" id="L90">            model.addAttribute(&quot;error&quot;, &quot;This&quot; + trade + &quot;is present&quot;);</span>
-        }
-<span class="fc" id="L92">        model.addAttribute(&quot;trade&quot;, trade.get());</span>
-<span class="fc" id="L93">        return &quot;trade/update&quot;;</span>
+
+<span class="fc" id="L90">        model.addAttribute(&quot;trade&quot;, trade.get());</span>
+<span class="fc" id="L91">        return &quot;trade/update&quot;;</span>
     }
 
     /**
@@ -103,15 +101,15 @@ public class TradeController {
     @PostMapping(&quot;/trade/update/{id}&quot;)
     public String updateTrade(@PathVariable(&quot;id&quot;) Integer id, @Valid Trade trade,
                               BindingResult result, Model model) {
-<span class="fc" id="L106">        logger.info(&quot;@PostMapping(\&quot;/trade/update/{id}\&quot;)&quot;);</span>
-<span class="fc bfc" id="L107" title="All 2 branches covered.">        if (result.hasErrors()) {</span>
-<span class="fc" id="L108">            logger.error(&quot;result error :{}&quot;, result.getFieldError());</span>
-<span class="fc" id="L109">            return &quot;trade/update&quot;;</span>
+<span class="fc" id="L104">        logger.info(&quot;@PostMapping(\&quot;/trade/update/{id}\&quot;)&quot;);</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">        if (result.hasErrors()) {</span>
+<span class="fc" id="L106">            logger.error(&quot;result error :{}&quot;, result.getFieldError());</span>
+<span class="fc" id="L107">            return &quot;trade/update&quot;;</span>
         }
-<span class="fc" id="L111">        trade.setTradeId(id);</span>
-<span class="fc" id="L112">        tradeService.save(trade);</span>
-<span class="fc" id="L113">        model.addAttribute(&quot;trade&quot;, tradeService.findAll());</span>
-<span class="fc" id="L114">        return &quot;redirect:/trade/list&quot;;</span>
+<span class="fc" id="L109">        trade.setTradeId(id);</span>
+<span class="fc" id="L110">        tradeService.save(trade);</span>
+<span class="fc" id="L111">        model.addAttribute(&quot;trade&quot;, tradeService.findAll());</span>
+<span class="fc" id="L112">        return &quot;redirect:/trade/list&quot;;</span>
     }
 
     /**
@@ -122,11 +120,11 @@ public class TradeController {
      */
     @GetMapping(&quot;/trade/delete/{id}&quot;)
     public String deleteTrade(@PathVariable(&quot;id&quot;) Integer id, Model model) throws DataNotFoundException {
-<span class="fc" id="L125">        logger.info(&quot;@GetMapping(\&quot;/trade/delete/{id}\&quot;&quot;);</span>
+<span class="fc" id="L123">        logger.info(&quot;@GetMapping(\&quot;/trade/delete/{id}\&quot;&quot;);</span>
 
-<span class="fc" id="L127">        tradeService.delete(id);</span>
-<span class="fc" id="L128">        model.addAttribute(&quot;trades&quot;, tradeService.findAll());</span>
-<span class="fc" id="L129">        return &quot;redirect:/trade/list&quot;;</span>
+<span class="fc" id="L125">        tradeService.delete(id);</span>
+<span class="fc" id="L126">        model.addAttribute(&quot;trades&quot;, tradeService.findAll());</span>
+<span class="fc" id="L127">        return &quot;redirect:/trade/list&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

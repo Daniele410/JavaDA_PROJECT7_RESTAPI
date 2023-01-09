@@ -45,7 +45,7 @@ public class BidList {
     String sourceListId;
     String side;
 
-    public BidList(String account, String type, @NonNull Double bidQuantity) {
+    public BidList(String account, String type, Double bidQuantity) {
         this.account = account;
         this.type = type;
         this.bidQuantity = bidQuantity;

@@ -4,6 +4,7 @@ import com.nimbusds.jose.shaded.json.JSONObject;
 import com.nnk.springboot.domain.RuleName;
 import com.nnk.springboot.domain.Trade;
 import com.nnk.springboot.repositories.TradeRepository;
+import jdk.jfr.Timestamp;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -40,11 +41,28 @@ class TradeApiRestControllerTest {
     void showAllRestTrade() throws Exception {
 
         //GIVEN
+
+
         JSONObject json = new JSONObject();
         json.put("account", "toto");
         json.put("type", "tutu");
         json.put("buyQuantity", 2.0);
         json.put("sellQuantity", 1.0);
+        json.put("buyPrice", 1.0);
+        json.put("sellPrice", 1.0);
+        json.put("benchmark", "benchmarkNew");
+//        json.put("tradeDate", "Now");
+        json.put("security", "newSecurity");
+        json.put("status", "newStatus");
+        json.put("trader", "newTrader");
+        json.put("book", "newBook");
+        json.put("creationName", "newCreation");
+//        json.put("creationDate", "now");
+        json.put("revisionName", "newRevisionName");
+        json.put("dealName", "newDealName");
+        json.put("dealType", "newDealType");
+        json.put("side", "newSide");
+
 
         //WHEN
         mockMvc.perform(MockMvcRequestBuilders.post("/trade/api")

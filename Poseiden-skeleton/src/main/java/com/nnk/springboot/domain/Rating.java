@@ -27,8 +27,7 @@ public class Rating {
         this.orderNumber = orderNumber;
     }
 
-    public Rating(String moodysRating, String sandPRating, String fitchRating, int i) {
-    }
+
 
     public Rating() {
 

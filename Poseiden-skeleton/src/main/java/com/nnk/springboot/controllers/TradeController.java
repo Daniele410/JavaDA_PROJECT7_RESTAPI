@@ -86,9 +86,7 @@ public class TradeController {
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) throws DataNotFoundException {
         logger.info("@GetMapping(\"/trade/update/{id}\")");
         Optional<Trade> trade = tradeService.findById(id);
-        if(trade.isPresent()){
-            model.addAttribute("error", "This" + trade + "is present");
-        }
+
         model.addAttribute("trade", trade.get());
         return "trade/update";
     }

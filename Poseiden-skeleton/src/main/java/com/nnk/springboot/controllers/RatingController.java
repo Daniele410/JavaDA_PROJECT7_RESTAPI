@@ -93,7 +93,7 @@ public class RatingController {
         logger.info("@PostMapping(\"/rating/update/{id}\")");
         if (result.hasErrors()) {
             logger.error("result error :{}", result.getFieldError());
-            return "rating/update";
+            return "/rating/update";
         }
         rating.setId(id);
         ratingService.save(rating);

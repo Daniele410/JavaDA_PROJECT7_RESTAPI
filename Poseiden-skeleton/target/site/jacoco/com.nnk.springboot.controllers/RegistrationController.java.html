@@ -42,7 +42,7 @@ public class RegistrationController {
     @ModelAttribute(&quot;user&quot;)
     public UserRegistrationDto userRegistrationDto(){
 
-<span class="nc" id="L45">        return new UserRegistrationDto();</span>
+<span class="fc" id="L45">        return new UserRegistrationDto();</span>
     }
 
     /**
@@ -51,7 +51,7 @@ public class RegistrationController {
      */
     @GetMapping
     public ModelAndView showRegistrationForm() {
-<span class="nc" id="L54">        return new ModelAndView(&quot;registration&quot;);</span>
+<span class="fc" id="L54">        return new ModelAndView(&quot;registration&quot;);</span>
     }
 
     /**
@@ -61,9 +61,9 @@ public class RegistrationController {
      */
     @PostMapping
     public String registerUserAccount(@ModelAttribute(&quot;user&quot;) UserRegistrationDto registrationDto) {
-<span class="nc" id="L64">        String cryptedPassword = passwordEncoder.encode(registrationDto.getPassword());</span>
-<span class="nc" id="L65">        userService.saveUser(registrationDto, cryptedPassword);</span>
-<span class="nc" id="L66">        return &quot;redirect:/registration?success&quot;;</span>
+<span class="fc" id="L64">        String cryptedPassword = passwordEncoder.encode(registrationDto.getPassword());</span>
+<span class="fc" id="L65">        userService.saveUser(registrationDto, cryptedPassword);</span>
+<span class="fc" id="L66">        return &quot;redirect:/registration?success&quot;;</span>
     }
 
 }

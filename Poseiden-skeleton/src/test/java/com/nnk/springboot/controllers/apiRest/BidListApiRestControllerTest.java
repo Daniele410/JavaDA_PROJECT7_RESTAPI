@@ -106,6 +106,24 @@ class BidListApiRestControllerTest {
         json.put("type", "tutu");
         json.put("bidQuantity", 20);
 
+        json.put("askQuantity", 2.0);
+        json.put("bid", 1.0);
+        json.put("ask", 2.0);
+        json.put("benchmark", "newBenchmark");
+        json.put("commentary", "newCommentary");
+        json.put("security", "newSecurity");
+        json.put("status", "newStatus");
+
+        json.put("book", "newBook");
+        json.put("creationName", "newCreationName");
+        json.put("revisionName", "newRevisionName");
+        json.put("dealName", "newDealname");
+        json.put("dealType", "newDealType");
+
+        json.put("sourceListId", "newSourceListId");
+        json.put("side", "newSide");
+
+
         //WHEN
         mockMvc.perform(MockMvcRequestBuilders.post("/bidList/api")
                         .contentType(MediaType.APPLICATION_JSON)

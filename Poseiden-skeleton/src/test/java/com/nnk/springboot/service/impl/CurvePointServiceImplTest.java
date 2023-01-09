@@ -109,8 +109,8 @@ class CurvePointServiceImplTest {
         //Given
         CurvePoint curvePoint = new CurvePoint(1,1,1.0,1.0);
 
-        when(curvePointRepository.save(curvePoint)).thenReturn(curvePoint);
         when(curvePointRepository.findById(any())).thenReturn(Optional.of(curvePoint));
+        when(curvePointRepository.save(curvePoint)).thenReturn(curvePoint);
         //When
         CurvePoint result = curvePointService.update(curvePoint);
 

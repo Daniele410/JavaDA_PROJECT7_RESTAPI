@@ -93,7 +93,7 @@ public class RatingController {
 <span class="fc" id="L93">        logger.info(&quot;@PostMapping(\&quot;/rating/update/{id}\&quot;)&quot;);</span>
 <span class="fc bfc" id="L94" title="All 2 branches covered.">        if (result.hasErrors()) {</span>
 <span class="fc" id="L95">            logger.error(&quot;result error :{}&quot;, result.getFieldError());</span>
-<span class="fc" id="L96">            return &quot;rating/update&quot;;</span>
+<span class="fc" id="L96">            return &quot;/rating/update&quot;;</span>
         }
 <span class="fc" id="L98">        rating.setId(id);</span>
 <span class="fc" id="L99">        ratingService.save(rating);</span>

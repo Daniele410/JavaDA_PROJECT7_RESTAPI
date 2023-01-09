@@ -28,9 +28,7 @@ public class CurvePoint {
     private Double value;
     private Timestamp creationDate;
 
-    public CurvePoint(int i, double v, double v1) {
 
-    }
 
     public CurvePoint(Integer id, Integer curveId, Double term, Double value) {
         this.id = id;
@@ -39,11 +37,6 @@ public class CurvePoint {
         this.value = value;
     }
 
-    public CurvePoint(Integer curveId, Double term, Double value) {
-        this.curveId = curveId;
-        this.term = term;
-        this.value = value;
-    }
 
     public CurvePoint() {
 
