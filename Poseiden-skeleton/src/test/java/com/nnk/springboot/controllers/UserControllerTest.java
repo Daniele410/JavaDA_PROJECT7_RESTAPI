@@ -19,6 +19,7 @@ import org.springframework.http.MediaType;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.Arrays;
@@ -49,6 +50,9 @@ class UserControllerTest {
 
     @Autowired
     private WebApplicationContext context;
+
+    @MockBean
+    private BindingResult bindingResult;
 
 
     @BeforeEach
@@ -172,6 +176,32 @@ class UserControllerTest {
                 .andDo(print())
                 .andExpect(status().isFound())
                 .andExpect(view().name("redirect:/user/list"));
+    }
+
+    @Test
+    void updateUser_shouldReturnModifiedViewResultHasError() throws Exception {
+        //Given
+        User user = new User("Gin", "GinTonic", "12345");
+        user.setId(1);
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//        user.setPassword(encoder.encode(user.getPassword()));
+        user.setRole("USER");
+
+        when(bindingResult.hasErrors()).thenReturn(true);
+
+        //When
+        mockMvc.perform(post("/user/update/{id}", 1)
+                        .sessionAttr("user", user)
+                        .param("username", "Gummy")
+                        .param("fullname", "Gommo")
+                        .param("password", user.getPassword())
+                        .param("role", user.getRole())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                //Then
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(view().name("user/update"));
     }
 
     @Test

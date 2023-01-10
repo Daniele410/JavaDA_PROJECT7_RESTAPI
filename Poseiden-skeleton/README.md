@@ -1,31 +1,47 @@
-# spring-boot
-## Technical:
+# SPRING-BOOT
 
-1. Framework: Spring Boot v2.0.4
-2. Java 8
+## About The Project
+
+Poseidon is Spring Boot web application
+It is a web-deployed enterprise software that aims to generate more 
+trades for institutional investors buying and selling fixed income securities.
+
+---------
+## Technical:
+1. Framework: Spring Boot v2.6.4
+2. Java 11
 3. Thymeleaf
 4. Bootstrap v.4.3.1
 
+---------
 
-## Setup with Intellij IDE
-1. Create project from Initializr: File > New > project > Spring Initializr
-2. Add lib repository into pom.xml
-3. Add folders
-    - Source root: src/main/java
-    - View: src/main/resources
-    - Static: src/main/resource/static
-4. Create database with name "demo" as configuration in application.properties
-5. Run sql script to create table doc/data.sql
+## Getting Started
 
-## Implement a Feature
-1. Create mapping domain class and place in package com.nnk.springboot.domain
-2. Create repository class and place in package com.nnk.springboot.repositories
-3. Create controller class and place in package com.nnk.springboot.controllers
-4. Create view files and place in src/main/resource/templates
+### Running App
 
-## Write Unit Test
-1. Create unit test and place in package com.nnk.springboot in folder test > java
+To run the application, go to folder `Poseidon`
 
-## Security
-1. Create user service to load user from  database and place in package com.nnk.springboot.services
-2. Add configuration class and place in package com.nnk.springboot.config
+1. Set up the tables and data in the database.
+
+   1. Create database with script present in`doc/data.sql`
+   2. as configuration in application.properties
+
+2.Compile and generate the final jar by running command line: `mvn clean package`
+
+After for start application digit
+
+Command line : `mvn spring-boot:run`
+
+# Steps for Windows 10
+Click on the Start Menu and search for “environment variables.
+” Click on the environment variable end you create new environment 
+variable 1: Now enter the Variable Name: spring.datasource.username 
+and Value:username and its Value and press the OK button. 
+2: Now enter the Variable Name: spring.datasource.password and Value:database password and its Value and press the OK button.
+
+4. To access the application, open your favorite browser and go to address: http://localhost:8080
+
+### Testing
+
+- To run the tests execute the command: `mvn verify`
+- To generate the project's reports site, please run :`mvn site`

@@ -47,10 +47,6 @@ public class UserServiceImpl implements IUserService {
                     registrationDto.getFullname(),
                     password,registrationDto.getRole());
 
-//            User user = new User(registrationDto.getUsername(),
-//                    registrationDto.getFullname(),
-//                    password);
-
             return userRepository.save(user);
         }
     }
