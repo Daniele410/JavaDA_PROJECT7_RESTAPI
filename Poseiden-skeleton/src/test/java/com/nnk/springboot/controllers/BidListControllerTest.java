@@ -2,6 +2,8 @@ package com.nnk.springboot.controllers;
 
 import com.nimbusds.jose.shaded.json.JSONObject;
 import com.nnk.springboot.domain.BidList;
+import com.nnk.springboot.service.IBidListService;
+import com.nnk.springboot.service.IUserDetailService;
 import com.nnk.springboot.service.impl.BidListServiceImpl;
 import com.nnk.springboot.service.impl.UserDetailServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -48,9 +50,9 @@ class BidListControllerTest {
     @Autowired
     private MockMvc mockMvc;
     @MockBean
-    private BidListServiceImpl bidListService;
+    private IBidListService bidListService;
     @MockBean
-    private UserDetailServiceImpl userDetailService;
+    private IUserDetailService userDetailService;
 
     @Autowired
     private WebApplicationContext context;

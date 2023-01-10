@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,69 +18,71 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private IUserDetailService userDetailService;
 
-<span class="fc" id="L22">    public SecurityConfig(IUserDetailService userDetailService) {</span>
-<span class="fc" id="L23">        this.userDetailService = userDetailService;</span>
-<span class="fc" id="L24">    }</span>
+<span class="fc" id="L21">    public SecurityConfig(IUserDetailService userDetailService) {</span>
+<span class="fc" id="L22">        this.userDetailService = userDetailService;</span>
+<span class="fc" id="L23">    }</span>
 
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
-<span class="fc" id="L29">        return new BCryptPasswordEncoder();</span>
+<span class="fc" id="L28">        return new BCryptPasswordEncoder();</span>
     }
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
-<span class="fc" id="L34">        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();</span>
-<span class="fc" id="L35">        auth.setUserDetailsService(userDetailService);</span>
-<span class="fc" id="L36">        auth.setPasswordEncoder(passwordEncoder());</span>
-<span class="fc" id="L37">        return auth;</span>
+<span class="fc" id="L33">        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();</span>
+<span class="fc" id="L34">        auth.setUserDetailsService(userDetailService);</span>
+<span class="fc" id="L35">        auth.setPasswordEncoder(passwordEncoder());</span>
+<span class="fc" id="L36">        return auth;</span>
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-<span class="fc" id="L42">        auth.userDetailsService(userDetailService).passwordEncoder(passwordEncoder());</span>
-<span class="fc" id="L43">    }</span>
+<span class="fc" id="L41">        auth.userDetailsService(userDetailService).passwordEncoder(passwordEncoder());</span>
+<span class="fc" id="L42">    }</span>
 
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-<span class="fc" id="L48">        http.csrf().disable();</span>
-<span class="fc" id="L49">        http.authorizeRequests().antMatchers(</span>
+<span class="fc" id="L47">        http.csrf().disable();</span>
+<span class="fc" id="L48">        http.authorizeRequests().antMatchers(</span>
                         &quot;/registration/**&quot;,
                         &quot;user/**&quot;,
                         &quot;/js/**&quot;,
                         &quot;/css/**&quot;,
-<span class="fc" id="L54">                        &quot;/img/**&quot;).permitAll()</span>
-<span class="fc" id="L55">                .antMatchers(&quot;/user/**&quot;).hasAuthority(&quot;ADMIN&quot;)</span>
-<span class="fc" id="L56">                .anyRequest().authenticated()</span>
-<span class="fc" id="L57">                .and()</span>
-<span class="fc" id="L58">                .formLogin()</span>
-<span class="fc" id="L59">                .loginPage(&quot;/login&quot;)</span>
-<span class="fc" id="L60">                .permitAll().defaultSuccessUrl(&quot;/login-success&quot;, true)</span>
-<span class="fc" id="L61">                .and()</span>
-<span class="fc" id="L62">                .oauth2Login()</span>
-<span class="fc" id="L63">                .loginPage(&quot;/login&quot;)</span>
-<span class="fc" id="L64">                .and()</span>
-<span class="fc" id="L65">                .logout()</span>
-<span class="fc" id="L66">                .invalidateHttpSession(true)</span>
-<span class="fc" id="L67">                .clearAuthentication(true)</span>
-<span class="fc" id="L68">                .logoutRequestMatcher(new AntPathRequestMatcher(&quot;/logout&quot;))</span>
-<span class="fc" id="L69">                .logoutSuccessUrl(&quot;/login?logout&quot;)</span>
-<span class="fc" id="L70">                .permitAll()</span>
-<span class="fc" id="L71">                .and()</span>
-<span class="fc" id="L72">                .exceptionHandling().accessDeniedPage(&quot;/403&quot;);</span>
+<span class="fc" id="L53">                        &quot;/img/**&quot;).permitAll()</span>
+<span class="fc" id="L54">                .antMatchers(&quot;/user/**&quot;).hasAuthority(&quot;ADMIN&quot;)</span>
+<span class="fc" id="L55">                .anyRequest().authenticated()</span>
+<span class="fc" id="L56">                .and()</span>
+<span class="fc" id="L57">                .formLogin()</span>
+<span class="fc" id="L58">                .loginPage(&quot;/login&quot;)</span>
+<span class="fc" id="L59">                .permitAll().defaultSuccessUrl(&quot;/login-success&quot;, true)</span>
+<span class="fc" id="L60">                .and()</span>
+<span class="fc" id="L61">                .oauth2Login()</span>
+<span class="fc" id="L62">                .loginPage(&quot;/login&quot;)</span>
+<span class="fc" id="L63">                .and()</span>
+<span class="fc" id="L64">                .logout()</span>
+<span class="fc" id="L65">                .invalidateHttpSession(true)</span>
+<span class="fc" id="L66">                .clearAuthentication(true)</span>
+<span class="fc" id="L67">                .logoutRequestMatcher(new AntPathRequestMatcher(&quot;/logout&quot;))</span>
+<span class="fc" id="L68">                .logoutSuccessUrl(&quot;/login?logout&quot;)</span>
+<span class="fc" id="L69">                .permitAll()</span>
+<span class="fc" id="L70">                .and()</span>
+<span class="fc" id="L71">                .exceptionHandling().accessDeniedPage(&quot;/403&quot;);</span>
 
 
-<span class="fc" id="L75">    }</span>
+<span class="fc" id="L74">    }</span>
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-<span class="fc" id="L79">        auth</span>
-<span class="fc" id="L80">                .inMemoryAuthentication()</span>
-<span class="fc" id="L81">                .withUser(&quot;user&quot;).password(&quot;{noop}pass&quot;).roles(&quot;USER&quot;)</span>
-<span class="fc" id="L82">                .and()</span>
-<span class="fc" id="L83">                .withUser(&quot;admin&quot;).password(&quot;{noop}pass&quot;).roles(&quot;ADMIN&quot;);</span>
-<span class="fc" id="L84">    }</span>
+<span class="fc" id="L78">        auth</span>
+<span class="fc" id="L79">                .inMemoryAuthentication()</span>
+<span class="fc" id="L80">                .withUser(&quot;user&quot;).password(&quot;{noop}pass&quot;).roles(&quot;USER&quot;)</span>
+<span class="fc" id="L81">                .and()</span>
+<span class="fc" id="L82">                .withUser(&quot;admin&quot;).password(&quot;{noop}pass&quot;).roles(&quot;ADMIN&quot;);</span>
+<span class="fc" id="L83">    }</span>
+
+
 
 
 }

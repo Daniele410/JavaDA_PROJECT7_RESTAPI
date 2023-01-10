@@ -19,17 +19,9 @@
             <a href="/rating/list">Ratings</a>&nbsp;|&nbsp;
             <a href="/trade/list">Trade</a>&nbsp;|&nbsp;
             <a href="/ruleName/list">Rule</a>|
-            <a href="/user/list">User management</a>
-<!--            <div>-->
-<!--                User: <span sec:authentication="name">NOT FOUND</span>-->
-<!--                Spring Roles: <span sec:authentication="principal.authorities">NOT FOUND</span>-->
-<!--            </div>-->
 
-            <!--                                <a th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" href="/user/list">User management</a>-->
-            <!--            <span th:if="${#authorization.expression('hasRole(''ADMIN'')')}"><a href="/user/list">User management</a>&ndash;&gt; </span>-->
-            <!--            <span th:if="role=Admin">-->
-            <!--                 <a href="/user/list">User management</a>-->
-            <!--            </span>-->
+            <div sec:authorize="hasAuthority('ADMIN')"> <a href="/user/list">User management</a></div>
+
 
         </div>
         <div class="col-6 text-right">

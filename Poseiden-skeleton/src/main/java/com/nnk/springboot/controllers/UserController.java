@@ -37,8 +37,6 @@ public class UserController {
 
 
 
-
-
     @RequestMapping("/user/list")
     public String home(Model model) {
         model.addAttribute("users", userService.findAll());
@@ -46,7 +44,7 @@ public class UserController {
     }
 
     @GetMapping("/user/add")
-    public String addUser(User bid) {
+    public String addUser(User user) {
         return "user/add";
     }
 
@@ -81,6 +79,7 @@ public class UserController {
     public String updateUser(@PathVariable("id") Integer id, @Valid User user,
                              BindingResult result, Model model) {
         if (!result.hasErrors()) {
+            logger.debug("post request updateUser user/update/{}", id);
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             user.setPassword(encoder.encode(user.getPassword()));
             user.setId(id);
@@ -98,7 +97,7 @@ public class UserController {
      */
     @GetMapping("/user/delete/{id}")
     public String deleteUser(@PathVariable("id") Integer id, Model model) {
-//        User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+        logger.debug("delete request /user/delete/{}", id);
         userService.delete(id);
         model.addAttribute("users", userService.findAll());
         return "redirect:/user/list";

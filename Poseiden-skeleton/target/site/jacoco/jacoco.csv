@@ -2,7 +2,7 @@ GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_
 spring-boot-skeleton,com.nnk.springboot.controllers,LoginController,0,56,0,0,0,18,0,5,0,5
 spring-boot-skeleton,com.nnk.springboot.controllers,HomeController,0,7,0,0,0,3,0,3,0,3
 spring-boot-skeleton,com.nnk.springboot.controllers,CurveController,0,89,0,0,0,25,0,8,0,8
-spring-boot-skeleton,com.nnk.springboot.controllers,UserController,0,112,0,2,0,28,0,9,0,8
+spring-boot-skeleton,com.nnk.springboot.controllers,UserController,0,125,0,4,0,32,0,10,0,8
 spring-boot-skeleton,com.nnk.springboot.controllers,RegistrationController,0,29,0,0,0,8,0,4,0,4
 spring-boot-skeleton,com.nnk.springboot.controllers,BidListController,0,94,0,2,0,27,0,9,0,8
 spring-boot-skeleton,com.nnk.springboot.controllers,RatingController,0,99,0,2,0,28,0,9,0,8
@@ -16,9 +16,9 @@ spring-boot-skeleton,com.nnk.springboot.service.impl,UserServiceImpl,0,142,0,4,0
 spring-boot-skeleton,com.nnk.springboot.service.impl,RuleNameServiceImpl,0,106,0,0,0,23,0,10,0,10
 spring-boot-skeleton,com.nnk.springboot.service.impl,BidListServiceImpl,0,111,0,0,0,23,0,10,0,10
 spring-boot-skeleton,com.nnk.springboot.service.impl,RatingServiceImpl,0,81,0,0,0,18,0,9,0,9
-spring-boot-skeleton,util,PasswordConstraintsValidator,13,57,1,1,6,6,1,2,0,2
+spring-boot-skeleton,util,PasswordConstraintsValidator,0,70,0,2,0,12,0,3,0,2
 spring-boot-skeleton,com.nnk.springboot.exception,DataNotFoundException,0,4,0,0,0,2,0,1,0,1
-spring-boot-skeleton,com.nnk.springboot.security,AppAuthProvider,46,0,4,0,9,0,5,0,3,0
+spring-boot-skeleton,com.nnk.springboot.security,AppAuthProvider,3,0,0,0,1,0,1,0,1,0
 spring-boot-skeleton,com.nnk.springboot.security,SecurityConfig,0,143,0,0,0,38,0,6,0,6
 spring-boot-skeleton,com.nnk.springboot,Application,5,3,0,0,2,1,1,1,1,1
 spring-boot-skeleton,com.nnk.springboot.domain,Rating,0,53,0,0,0,23,0,12,0,12

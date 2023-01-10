@@ -5,6 +5,7 @@ com\nnk\springboot\controllers\apiRest\TradeApiRestControllerTest.class
 com\nnk\springboot\controllers\LoginControllerTest.class
 com\nnk\springboot\CurvePointTests.class
 com\nnk\springboot\controllers\UserControllerTest.class
+com\nnk\springboot\controllers\RegistrationControllerTest.class
 com\nnk\springboot\PasswordEncodeTest.class
 com\nnk\springboot\controllers\apiRest\BidListApiRestControllerTest.class
 com\nnk\springboot\controllers\RuleNameControllerTest.class
