@@ -69,7 +69,7 @@ public class BidListController {
      * @param bid
      * @param result
      * @param model
-     * @return
+     * @return add bid list in database
      */
     @PostMapping("/bidList/validate")
     public String validate(@Valid BidList bid, BindingResult result, Model model) {
@@ -108,8 +108,12 @@ public class BidListController {
      * @throws DataNotFoundException
      */
     @PostMapping("/bidList/update/{id}")
-    public String updateBid(@PathVariable("id") Integer id, BidList bidList,
+    public String updateBid(@PathVariable("id") Integer id,@Valid BidList bidList,
                             BindingResult result, Model model) throws DataNotFoundException {
+        /**form data validation*/
+        if (result.hasErrors()) {
+           return  "redirect:/bidList/update/{id}";
+        }
         logger.info("@PostMapping(\"/bidList/update/{id}\")");
         bidList.setBidListId(id);
         bidListService.save(bidList);

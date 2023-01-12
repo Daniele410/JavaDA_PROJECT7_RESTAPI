@@ -22,9 +22,9 @@ public class BidList {
     @NotBlank(message = "Type is mandatory")
     private String type;
 
-
-    //@Digits(fraction = 0, integer = 22)
-    @NonNull
+   //@Digits(fraction = 0, integer = 22)
+    //@NotBlank(message = "Type is mandatory")
+    @NotNull(message="bidQuantity is mandatory")
     private Double bidQuantity;
     Double askQuantity;
     Double bid;

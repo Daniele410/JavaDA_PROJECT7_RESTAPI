@@ -23,6 +23,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
@@ -53,6 +54,9 @@ class BidListControllerTest {
     private IBidListService bidListService;
     @MockBean
     private IUserDetailService userDetailService;
+
+    @MockBean
+    private BindingResult bindingResult;
 
     @Autowired
     private WebApplicationContext context;
@@ -195,6 +199,39 @@ class BidListControllerTest {
                 .andDo(print())
                 .andExpect(status().isFound())
                 .andExpect(view().name("redirect:/bidList/list"));
+
+    }
+
+    @Test
+    void updateBid_shouldReturnModifiedBidListViewResultError() throws Exception {
+        //Given
+        BidList bid = new BidList("Account", "Type", 5d);
+        bid.setBidListId(1);
+        when(bidListService.update(any())).thenReturn(bid);
+
+        when(bindingResult.hasErrors()).thenReturn(true);
+
+        //When
+        mockMvc.perform(post("/bidList/validate")
+                .sessionAttr("bidList", bid)
+                .param("account", bid.getAccount())
+                .param("type", bid.getType())
+                .param("bidQuantity", "1.0")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON));
+
+        mockMvc.perform(post("/bidList/update/1")
+                        .sessionAttr("bidList", bid)
+                        .param("account", "NewAccount")
+
+                        .param("bidQuantity", "1.0")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+
+                //Then
+                .andDo(print())
+                .andExpect(status().isFound())
+                .andExpect(view().name("redirect:/bidList/update/{id}"));
 
     }
 
