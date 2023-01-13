@@ -26,7 +26,7 @@ To run the application, go to folder `Poseidon`
    1. Create database with script present in`doc/data.sql`
    2. as configuration in application.properties
 
-2.Compile and generate the final jar by running command line: `mvn clean package`
+2. Compile and generate the final jar by running command line: `mvn clean package`
 
 After for start application digit
 
