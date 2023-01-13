@@ -1,9 +1,6 @@
 package com.nnk.springboot.domain;
 
-import lombok.NonNull;
-
 import javax.persistence.*;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
@@ -22,9 +19,9 @@ public class BidList {
     @NotBlank(message = "Type is mandatory")
     private String type;
 
-   //@Digits(fraction = 0, integer = 22)
+    //@Digits(fraction = 0, integer = 22)
     //@NotBlank(message = "Type is mandatory")
-    @NotNull(message="bidQuantity is mandatory")
+    @NotNull(message = "bidQuantity is mandatory")
     private Double bidQuantity;
     Double askQuantity;
     Double bid;
@@ -50,7 +47,6 @@ public class BidList {
         this.type = type;
         this.bidQuantity = bidQuantity;
     }
-
 
 
     public BidList() {

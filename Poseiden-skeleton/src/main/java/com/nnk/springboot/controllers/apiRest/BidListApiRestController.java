@@ -63,7 +63,6 @@ public class BidListApiRestController {
     @PutMapping("/bidList/api")
     public BidList uploadRestBid(@RequestBody BidList bidList) {
         logger.info("@PutMapping(\"/bidList/api/{}\")  Id " + bidList + " as modified", bidList.getBidListId());
-
         return bidListService.update(bidList);
     }
 

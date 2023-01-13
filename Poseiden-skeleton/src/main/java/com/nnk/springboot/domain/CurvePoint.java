@@ -29,7 +29,6 @@ public class CurvePoint {
     private Timestamp creationDate;
 
 
-
     public CurvePoint(Integer id, Integer curveId, Double term, Double value) {
         this.id = id;
         this.curveId = curveId;

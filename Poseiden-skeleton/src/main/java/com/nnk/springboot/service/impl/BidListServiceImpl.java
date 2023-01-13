@@ -82,8 +82,8 @@ public class BidListServiceImpl implements IBidListService {
 //        uploadBid.setAccount(bid.getAccount());
 //        uploadBid.setType(bid.getType());
 //        uploadBid.setBidQuantity(bid.getBidQuantity());
-
-        return bidListRepository.save(uploadBid);
+        bidListRepository.save(bid);
+        return bid;
 
     }
 

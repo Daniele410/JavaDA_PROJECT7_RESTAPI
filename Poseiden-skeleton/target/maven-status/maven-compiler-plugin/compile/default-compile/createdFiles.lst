@@ -26,7 +26,6 @@ com\nnk\springboot\domain\User.class
 com\nnk\springboot\service\IUserService.class
 com\nnk\springboot\exception\DataNotFoundException.class
 com\nnk\springboot\repositories\TradeRepository.class
-com\nnk\springboot\security\AppAuthProvider.class
 com\nnk\springboot\controllers\apiRest\RatingApiRestController.class
 com\nnk\springboot\repositories\BidListRepository.class
 com\nnk\springboot\service\IRatingService.class

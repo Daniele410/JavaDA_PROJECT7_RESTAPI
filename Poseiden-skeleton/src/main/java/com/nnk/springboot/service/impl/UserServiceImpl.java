@@ -86,6 +86,8 @@ public class UserServiceImpl implements IUserService {
     @Override
     public User save(User user) {
         logger.debug("saving user{}", user.getFullname());
+
+
         userRepository.save(user);
 
         return user;

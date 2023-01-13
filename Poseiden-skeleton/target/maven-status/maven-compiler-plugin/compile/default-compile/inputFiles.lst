@@ -43,6 +43,5 @@ C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\j
 C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\controllers\RegistrationController.java
 C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\service\IUserDetailService.java
 C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\controllers\apiRest\BidListApiRestController.java
-C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\security\AppAuthProvider.java
 C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\service\impl\BidListServiceImpl.java
 C:\Users\goten\IdeaProjects\JavaDA_PROJECT7_RESTAPI\Poseiden-skeleton\src\main\java\com\nnk\springboot\repositories\RuleNameRepository.java
