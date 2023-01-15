@@ -1,6 +1,5 @@
 package com.nnk.springboot.controllers;
 
-import com.nnk.springboot.domain.RuleName;
 import com.nnk.springboot.domain.User;
 import com.nnk.springboot.service.IUserService;
 import org.apache.logging.log4j.LogManager;
@@ -17,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 import java.util.Optional;
 
+/**
+ * UserController
+ */
 @Controller
 public class UserController {
 
@@ -26,6 +28,9 @@ public class UserController {
     private static final Logger logger = LogManager.getLogger("UserController");
 
 
+    /**
+     * instance IUserService
+     */
     private IUserService userService;
 
     /**
@@ -36,18 +41,34 @@ public class UserController {
     }
 
 
-
+    /**
+     * @param model
+     * get home page
+     * @return
+     */
     @RequestMapping("/user/list")
     public String home(Model model) {
         model.addAttribute("users", userService.findAll());
         return "user/list";
     }
 
+    /**
+     * @param user
+     * get add User page
+     * @return
+     */
     @GetMapping("/user/add")
     public String addUser(User user) {
         return "user/add";
     }
 
+    /**
+     * post method to add a new user
+     * @param user
+     * @param result
+     * @param model
+     * @return
+     */
     @PostMapping("/user/validate")
     public String validate(@Valid User user, BindingResult result, Model model) {
         if (!result.hasErrors()) {
@@ -62,6 +83,7 @@ public class UserController {
     }
 
     /**
+     * get method to show user update view
      * @param id
      * @param model
      * @return
@@ -75,6 +97,14 @@ public class UserController {
         return "user/update";
     }
 
+    /**
+     * post method to update user by id
+     * @param id
+     * @param user
+     * @param result
+     * @param model
+     * @return
+     */
     @PostMapping("/user/update/{id}")
     public String updateUser(@PathVariable("id") Integer id, @Valid User user,
                              BindingResult result, Model model) {
@@ -91,6 +121,7 @@ public class UserController {
     }
 
     /**
+     * delete method to delete user by id
      * @param id
      * @param model
      * @return delete user by id

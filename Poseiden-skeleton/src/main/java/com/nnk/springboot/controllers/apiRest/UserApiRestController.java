@@ -1,6 +1,5 @@
 package com.nnk.springboot.controllers.apiRest;
 
-import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.domain.User;
 import com.nnk.springboot.exception.DataNotFoundException;
 import com.nnk.springboot.service.IUserService;
@@ -13,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * UserApiRest Controller
+ */
 @RestController
 public class UserApiRestController {
 
@@ -36,6 +38,7 @@ public class UserApiRestController {
 
 
     /**
+     * get method to get all users
      * @return
      */
     @GetMapping("/users/api")
@@ -45,6 +48,7 @@ public class UserApiRestController {
     }
 
     /**
+     * get method to get user by id
      * @param id
      * @return user httpStatus.Ok
      * @throws DataNotFoundException
@@ -57,6 +61,7 @@ public class UserApiRestController {
     }
 
     /**
+     * post method to add user
      * @param user
      * @return add bidList
      */
@@ -69,6 +74,7 @@ public class UserApiRestController {
 
 
     /**
+     * put method to upload user
      * @param user
      * @return user update
      */
@@ -80,6 +86,7 @@ public class UserApiRestController {
     }
 
     /**
+     * delete method to delete user by id
      * @param userId
      * @return
      * @throws DataNotFoundException

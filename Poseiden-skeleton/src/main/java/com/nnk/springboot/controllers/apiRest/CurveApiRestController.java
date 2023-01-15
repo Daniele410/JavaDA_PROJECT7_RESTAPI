@@ -1,6 +1,5 @@
 package com.nnk.springboot.controllers.apiRest;
 
-import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.domain.CurvePoint;
 import com.nnk.springboot.exception.DataNotFoundException;
 import com.nnk.springboot.service.ICurvePointService;
@@ -39,12 +38,22 @@ public class CurveApiRestController {
     }
 
 
+    /**
+     * get method to swhow curvePoint
+     * @return
+     */
     @GetMapping("/curvePoint/api")
     public ResponseEntity<List<CurvePoint>> showRestCurvePoint() {
         logger.info("@RequestMapping(\"/curvePoint/api\")");
         return new ResponseEntity<>(curvePointService.findAll(), HttpStatus.OK);
     }
 
+    /**
+     * get method to show curvePoint by id
+     * @param id
+     * @return
+     * @throws DataNotFoundException
+     */
     @GetMapping("/curvePoint/api/{id}")
     public ResponseEntity<Optional<CurvePoint>> showRestCurvePointById(@PathVariable int id) throws DataNotFoundException {
         logger.info("@RequestMapping(\"/curvePoint/api{id}\")");
@@ -53,6 +62,11 @@ public class CurveApiRestController {
         return new ResponseEntity<>(curvePointService.findById(id), HttpStatus.OK);
     }
 
+    /**
+     * post method to add curvePoint
+     * @param curvePoint
+     * @return
+     */
     @PostMapping("/curvePoint/api")
     public CurvePoint addRestCurvePoint(@RequestBody CurvePoint curvePoint) {
         logger.info("@PostMapping(\"/curvePoint/api\")");
@@ -61,6 +75,11 @@ public class CurveApiRestController {
         return  curvePoint ;
     }
 
+    /**
+     * put method to upload curvePoint
+     * @param curvePoint
+     * @return
+     */
     @PutMapping("/curvePoint/api")
     public CurvePoint uploadRestCurvePoint(@RequestBody CurvePoint curvePoint) {
         logger.info("@PutMapping(\"/curvePoint/api/{}\")  Id " + curvePoint.getId()+ " as modified", curvePoint.getId());
@@ -68,6 +87,12 @@ public class CurveApiRestController {
         return curvePoint;
     }
 
+    /**
+     * delete method to delete curvePoint
+     * @param curvePointId
+     * @return
+     * @throws DataNotFoundException
+     */
     @DeleteMapping("/curvePoint/api/{curvePointId}")
     public String deleteRestCurvePoint(@PathVariable int curvePointId) throws DataNotFoundException {
         logger.info("@DeleteMapping(\"/bidList/api/{bidListId}\")");

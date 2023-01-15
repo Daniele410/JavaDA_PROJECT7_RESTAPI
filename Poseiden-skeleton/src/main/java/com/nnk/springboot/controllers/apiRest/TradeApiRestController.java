@@ -1,6 +1,5 @@
 package com.nnk.springboot.controllers.apiRest;
 
-import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.domain.Trade;
 import com.nnk.springboot.exception.DataNotFoundException;
 import com.nnk.springboot.service.ITradeService;
@@ -32,6 +31,7 @@ public class TradeApiRestController {
     }
 
     /**
+     * get method to show all trade
      * @return
      */
     @GetMapping("/trades/api")
@@ -41,6 +41,7 @@ public class TradeApiRestController {
     }
 
     /**
+     * get method to get trade by id
      * @param id
      * @return trade httpStatus.Ok
      * @throws DataNotFoundException
@@ -54,6 +55,7 @@ public class TradeApiRestController {
     }
 
     /**
+     * post method to add new trade
      * @param trade
      * @return add bidList
      */
@@ -66,6 +68,7 @@ public class TradeApiRestController {
 
 
     /**
+     * put method to upload trade
      * @param trade
      * @return update trade
      */
@@ -77,6 +80,7 @@ public class TradeApiRestController {
     }
 
     /**
+     * delete method to delete trade by id
      * @param tradeId
      * @return
      * @throws DataNotFoundException

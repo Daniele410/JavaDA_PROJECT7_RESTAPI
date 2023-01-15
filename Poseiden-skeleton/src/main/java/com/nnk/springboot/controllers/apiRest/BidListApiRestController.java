@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * BidListApiRestController
+ */
 @RestController
 public class BidListApiRestController {
 
@@ -21,6 +24,9 @@ public class BidListApiRestController {
     private static final Logger logger = LogManager.getLogger("BidListApiRestController");
 
 
+    /**
+     *IBidListService instance
+     */
     private IBidListService bidListService;
 
     public BidListApiRestController(IBidListService bidListService) {
@@ -28,6 +34,7 @@ public class BidListApiRestController {
     }
 
     /**
+     * get methode for get all bidList
      * @return
      */
     @GetMapping("/bidList/api")
@@ -38,6 +45,7 @@ public class BidListApiRestController {
 
     /**
      * @param id
+     * get methode for get bidList by id
      * @return bid httpStatus.Ok
      * @throws DataNotFoundException
      */
@@ -60,6 +68,11 @@ public class BidListApiRestController {
     }
 
 
+    /**
+     * @param bidList
+     * update methode to update bid
+     * @return
+     */
     @PutMapping("/bidList/api")
     public BidList uploadRestBid(@RequestBody BidList bidList) {
         logger.info("@PutMapping(\"/bidList/api/{}\")  Id " + bidList + " as modified", bidList.getBidListId());
@@ -68,6 +81,7 @@ public class BidListApiRestController {
 
     /**
      * @param bidListId
+     * delete methode to delete bid
      * @return
      * @throws DataNotFoundException
      */

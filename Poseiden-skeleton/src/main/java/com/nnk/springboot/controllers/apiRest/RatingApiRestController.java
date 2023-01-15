@@ -1,6 +1,5 @@
 package com.nnk.springboot.controllers.apiRest;
 
-import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.domain.Rating;
 import com.nnk.springboot.exception.DataNotFoundException;
 import com.nnk.springboot.service.IRatingService;
@@ -13,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * RatingApiRest Controller
+ */
 @RestController
 public class RatingApiRestController {
 
@@ -22,6 +24,9 @@ public class RatingApiRestController {
     private static final Logger logger = LogManager.getLogger("RatingApiRestController");
 
 
+    /**
+     * instance of IratingService
+     */
     private IRatingService ratingService;
 
     public RatingApiRestController(IRatingService ratingService) {
@@ -30,6 +35,7 @@ public class RatingApiRestController {
 
 
     /**
+     * get method to show rating
      * @return
      */
     @GetMapping("/ratings/api")
@@ -39,6 +45,7 @@ public class RatingApiRestController {
     }
 
     /**
+     * get method to show rating by id
      * @param id
      * @return rating httpStatus.Ok
      * @throws DataNotFoundException
@@ -52,6 +59,7 @@ public class RatingApiRestController {
     }
 
     /**
+     * post method to add rating
      * @param rating
      * @return add bidList
      */
@@ -64,6 +72,7 @@ public class RatingApiRestController {
 
 
     /**
+     * put method to upload rating
      * @param rating
      * @return
      */
@@ -76,6 +85,7 @@ public class RatingApiRestController {
 
 
     /**
+     * delete method to delete rating
      * @param ratingId
      * @return
      * @throws DataNotFoundException

@@ -1,6 +1,5 @@
 package com.nnk.springboot.controllers.apiRest;
 
-import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.domain.RuleName;
 import com.nnk.springboot.exception.DataNotFoundException;
 import com.nnk.springboot.service.IRuleNameService;
@@ -13,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * RuleNameApiRest Controller
+ */
 @RestController
 public class RuleNameApiRestController {
 
@@ -23,6 +25,9 @@ public class RuleNameApiRestController {
     private static final Logger logger = LogManager.getLogger("RuleNameApiRestController");
 
 
+    /**
+     * instance of IRuleNameService
+     */
     private IRuleNameService ruleNameService;
 
     public RuleNameApiRestController(IRuleNameService ruleNameService) {
@@ -31,6 +36,7 @@ public class RuleNameApiRestController {
 
 
     /**
+     * get method to show ruleName
      * @return
      */
     @GetMapping("/ruleNames/api")
@@ -40,6 +46,7 @@ public class RuleNameApiRestController {
     }
 
     /**
+     * get method to show ruleName by id
      * @param id
      * @return bid httpStatus.Ok
      * @throws DataNotFoundException
@@ -52,6 +59,7 @@ public class RuleNameApiRestController {
     }
 
     /**
+     * post method to add new ruleName
      * @param ruleName
      * @return add ruleName
      */
@@ -64,6 +72,7 @@ public class RuleNameApiRestController {
 
 
     /**
+     * put method to update ruleName
      * @param ruleName
      * @return update ruleName
      */
@@ -75,6 +84,7 @@ public class RuleNameApiRestController {
     }
 
     /**
+     * delete method to delete ruleName By id
      * @param ruleNameId
      * @return
      * @throws DataNotFoundException

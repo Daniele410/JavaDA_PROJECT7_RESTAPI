@@ -28,7 +28,7 @@ public class LoginController {
 
 
     /**
-     *
+     *instance UserRepository
      */
     private UserRepository userRepository;
 
@@ -39,10 +39,11 @@ public class LoginController {
         this.userRepository = userRepository;
     }
 
-    private IUserService userService;
 
-
-
+    /**
+     * get login page
+     * @return
+     */
     @GetMapping("/login")
     public ModelAndView login() {
         ModelAndView mav = new ModelAndView();
@@ -50,6 +51,10 @@ public class LoginController {
         return mav;
     }
 
+    /**
+     * get info-loginSuccess
+     * @return
+     */
     @RequestMapping("/login-success")
     public ModelAndView getInfo() {
         ModelAndView mav = new ModelAndView();
@@ -58,6 +63,10 @@ public class LoginController {
     }
 
 
+    /**
+     * get all user
+     * @return
+     */
     @GetMapping("/secure/article-details")
     public ModelAndView getAllUserArticles() {
         ModelAndView mav = new ModelAndView();
@@ -66,6 +75,10 @@ public class LoginController {
         return mav;
     }
 
+    /**
+     * get 403 page
+     * @return
+     */
     @GetMapping("/403")
     public ModelAndView error() {
         ModelAndView mav = new ModelAndView();
