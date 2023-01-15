@@ -7,6 +7,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
+/**
+ * business domain of user
+ */
 @Entity
 @Table(name = "users")
 public class User {

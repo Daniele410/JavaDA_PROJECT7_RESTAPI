@@ -5,6 +5,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
+/**
+ * business domain of bid
+ */
 @Entity
 @Table(name = "bidlist")
 public class BidList {

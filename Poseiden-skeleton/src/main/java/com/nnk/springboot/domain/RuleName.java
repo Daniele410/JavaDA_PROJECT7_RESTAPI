@@ -3,6 +3,9 @@ package com.nnk.springboot.domain;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+/**
+ * business domain of ruleName
+ */
 @Entity
 @Table(name = "rulename")
 public class RuleName {

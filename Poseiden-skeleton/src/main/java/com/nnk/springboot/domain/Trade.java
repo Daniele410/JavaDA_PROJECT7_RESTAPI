@@ -6,6 +6,9 @@ import javax.validation.constraints.NotBlank;
 import java.sql.Timestamp;
 
 
+/**
+ * business domain of trade
+ */
 @Entity
 @Table(name = "trade")
 public class Trade {

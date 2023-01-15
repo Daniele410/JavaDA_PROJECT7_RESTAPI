@@ -4,6 +4,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
+/**
+ * business domain rating
+ */
 @Entity
 @Table(name = "rating")
 public class Rating {
