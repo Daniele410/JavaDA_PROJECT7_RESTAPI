@@ -44,6 +44,7 @@ public class BidListController {
     }
 
     /**
+     * get method to get all Bids
      * @param model
      * @param principal
      * @return
@@ -56,6 +57,7 @@ public class BidListController {
     }
 
     /**
+     * get method to show bidList form
      * @param bid
      * @return
      */
@@ -66,6 +68,7 @@ public class BidListController {
     }
 
     /**
+     * post method to add new bid
      * @param bid
      * @param result
      * @param model
@@ -85,6 +88,7 @@ public class BidListController {
     }
 
     /**
+     * get method to show bid update form
      * @param id
      * @param model
      * @return bidList update form
@@ -100,6 +104,7 @@ public class BidListController {
     }
 
     /**
+     * post method to update bid by id
      * @param id
      * @param bidList
      * @param result
@@ -122,6 +127,7 @@ public class BidListController {
     }
 
     /**
+     * delete method to delete bid by id
      * @param id
      * @param model
      * @return

@@ -54,6 +54,7 @@ public class CurveController {
     }
 
     /**
+     * get method to show add curvePoint form
      * @param bid
      * @return
      */
@@ -64,6 +65,7 @@ public class CurveController {
     }
 
     /**
+     * post method to add curvePoint
      * @param curvePoint
      * @param result
      * @param model
@@ -78,6 +80,7 @@ public class CurveController {
     }
 
     /**
+     * get mothod to show curvePoint update form
      * @param id
      * @param model
      * @return curvePoint update form
@@ -92,6 +95,7 @@ public class CurveController {
     }
 
     /**
+     * post method to update curvePoint by id
      * @param id
      * @param curvePoint
      * @param result
@@ -109,6 +113,7 @@ public class CurveController {
     }
 
     /**
+     * get method to delete curve point by id
      * @param id
      * @param model
      * @return
