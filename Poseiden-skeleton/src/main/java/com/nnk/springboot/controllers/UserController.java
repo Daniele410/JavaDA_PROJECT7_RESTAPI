@@ -42,6 +42,7 @@ public class UserController {
 
 
     /**
+     * get method show all user view
      * @param model
      * get home page
      * @return
@@ -53,6 +54,7 @@ public class UserController {
     }
 
     /**
+     * get method to show add user form view
      * @param user
      * get add User page
      * @return
@@ -98,7 +100,7 @@ public class UserController {
     }
 
     /**
-     * post method to update user by id
+     * post method to update user view
      * @param id
      * @param user
      * @param result

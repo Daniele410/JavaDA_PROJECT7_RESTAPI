@@ -1,6 +1,5 @@
 package com.nnk.springboot.controllers;
 
-import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.domain.Rating;
 import com.nnk.springboot.exception.DataNotFoundException;
 import com.nnk.springboot.service.IRatingService;
@@ -17,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 import java.util.Optional;
 
+/**
+ * Rating Controller
+ */
 @Controller
 public class RatingController {
 
@@ -39,6 +41,7 @@ public class RatingController {
 
 
     /**
+     * get method to show all ratingList
      * @param model
      * @return "rating/list"
      */
@@ -50,6 +53,7 @@ public class RatingController {
     }
 
     /**
+     * get method to show rating add form
      * @param rating
      * @return "rating/add"
      */
@@ -59,6 +63,13 @@ public class RatingController {
         return "rating/add";
     }
 
+    /**
+     * post method to add rating
+     * @param rating
+     * @param result
+     * @param model
+     * @return
+     */
     @PostMapping("/rating/validate")
     public String validate(@Valid Rating rating, BindingResult result, Model model) {
         logger.info("@PostMapping(\"/rating/validate\")");
@@ -81,6 +92,7 @@ public class RatingController {
     }
 
     /**
+     * post method to update rating
      * @param id
      * @param rating
      * @param result
@@ -103,6 +115,7 @@ public class RatingController {
 
 
     /**
+     * get method to delete rating
      * @param id
      * @param model
      * @return delete rating

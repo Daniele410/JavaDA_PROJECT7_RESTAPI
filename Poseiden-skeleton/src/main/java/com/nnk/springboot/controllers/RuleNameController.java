@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 import java.util.Optional;
 
+/**
+ * RuleName Controller
+ */
 @Controller
 public class RuleNameController {
 
@@ -39,6 +42,7 @@ public class RuleNameController {
 
 
     /**
+     * get method to show home and get all RuleName
      * @param model
      * @return ruleName list page
      */
@@ -50,6 +54,7 @@ public class RuleNameController {
     }
 
     /**
+     * get method to show form add ruleName
      * @param ruleName
      * @return ruleName add form
      */
@@ -60,6 +65,7 @@ public class RuleNameController {
     }
 
     /**
+     * post method to add new ruleName
      * @param ruleName
      * @param result
      * @param model
@@ -76,6 +82,13 @@ public class RuleNameController {
         return "redirect:/ruleName/list";
     }
 
+    /**
+     * get method to show update form
+     * @param id
+     * @param model
+     * @return
+     * @throws DataNotFoundException
+     */
     @GetMapping("/ruleName/update/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) throws DataNotFoundException {
         logger.info("@GetMapping(\"/ruleName/update/{id}\")");
@@ -84,6 +97,14 @@ public class RuleNameController {
         return "ruleName/update";
     }
 
+    /**
+     * post method to update ruleName
+     * @param id
+     * @param ruleName
+     * @param result
+     * @param model
+     * @return
+     */
     @PostMapping("/ruleName/update/{id}")
     public String updateRuleName(@PathVariable("id") Integer id, @Valid RuleName ruleName,
                                  BindingResult result, Model model) {
@@ -94,6 +115,14 @@ public class RuleNameController {
         return "redirect:/ruleName/list";
     }
 
+
+    /**
+     * get method to delete ruleName
+     * @param id
+     * @param model
+     * @return
+     * @throws DataNotFoundException
+     */
     @GetMapping("/ruleName/delete/{id}")
     public String deleteRuleName(@PathVariable("id") Integer id, Model model) throws DataNotFoundException {
         logger.info("@GetMapping(\"/ruleName/delete/{id}\"");

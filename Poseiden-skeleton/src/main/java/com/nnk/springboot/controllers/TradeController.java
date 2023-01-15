@@ -1,6 +1,5 @@
 package com.nnk.springboot.controllers;
 
-import com.nnk.springboot.domain.CurvePoint;
 import com.nnk.springboot.domain.Trade;
 import com.nnk.springboot.exception.DataNotFoundException;
 import com.nnk.springboot.service.ITradeService;
@@ -43,6 +42,7 @@ public class TradeController {
 
 
     /**
+     * get method to show and get all trade
      * @param model
      * @return trades list
      */
@@ -54,6 +54,7 @@ public class TradeController {
     }
 
     /**
+     * get method to show add trade form
      * @param trade
      * @return trade add page
      */
@@ -64,6 +65,7 @@ public class TradeController {
     }
 
     /**
+     * post method to add new trade
      * @param trade
      * @param result
      * @param model
@@ -78,6 +80,7 @@ public class TradeController {
     }
 
     /**
+     * get method to show update form
      * @param id
      * @param model
      * @return update trade
@@ -92,6 +95,7 @@ public class TradeController {
     }
 
     /**
+     * post method to update trade
      * @param id
      * @param trade
      * @param result
@@ -113,6 +117,7 @@ public class TradeController {
     }
 
     /**
+     * get method to delete trade
      * @param id
      * @param model
      * @return delete trade
