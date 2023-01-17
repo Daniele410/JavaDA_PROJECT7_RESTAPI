@@ -17,6 +17,13 @@ trades for institutional investors buying and selling fixed income securities.
 
 ## Getting Started
 
+# Steps for Windows 10 to config your DataBase Username and Password
+1. Click on the Start Menu and search for “environment variables.”
+2. Click on the environment variable end you create new environment
+   variable
+   1. Now enter the Variable Name: spring.datasource.username and Value:username and its Value and press the OK button.
+   2. Now enter the Variable Name: spring.datasource.password and Value:database password and its Value and press the OK button.
+
 ### Running App
 
 To run the application, go to folder `Poseidon`
@@ -32,14 +39,7 @@ After for start application digit
 
 Command line : `mvn spring-boot:run`
 
-# Steps for Windows 10
-Click on the Start Menu and search for “environment variables.
-” Click on the environment variable end you create new environment 
-variable 1: Now enter the Variable Name: spring.datasource.username 
-and Value:username and its Value and press the OK button. 
-2: Now enter the Variable Name: spring.datasource.password and Value:database password and its Value and press the OK button.
-
-4. To access the application, open your favorite browser and go to address: http://localhost:8080
+1. To access the application, open your favorite browser and go to address: http://localhost:8080
 
 ### Testing
 
